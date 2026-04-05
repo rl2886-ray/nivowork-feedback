@@ -2,22 +2,12 @@
 
 import { 
   FileText, 
-  Mic, 
-  BarChart3, 
-  Settings, 
-  ChevronDown, 
-  User, 
 } from "lucide-react";
 import { useState } from "react";
 
 export default function NivoWorkFeedbackPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
-
-  const historyItems = [ 
-    "## 一、创始人背景 创始…", 
-    "## 极渊光学 ARVR 模组…", 
-  ]; 
 
   const steps = [ 
     "上传录音/导入会议", 
@@ -59,7 +49,7 @@ export default function NivoWorkFeedbackPage() {
       } else {
         setSubmitMessage("提交失败，请稍后重试。");
       }
-    } catch (error) {
+    } catch {
       setSubmitMessage("网络错误，请稍后重试。");
     } finally {
       setIsSubmitting(false);
@@ -68,96 +58,8 @@ export default function NivoWorkFeedbackPage() {
 
   return ( 
     <div className="min-h-screen bg-[#f6f6f5] text-[#2f2f2f]"> 
-      <div className="flex min-h-screen"> 
-        <aside className="hidden w-[336px] shrink-0 border-r border-[#e7e5e4] bg-[#f7f7f6] xl:flex xl:flex-col"> 
-          <div className="px-5 pb-6 pt-8"> 
-            <div className="flex items-center gap-3"> 
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-black text-white shadow-sm"> 
-                <span className="text-2xl font-semibold">N</span> 
-              </div> 
-              <div className="text-[23px] font-semibold tracking-tight text-[#2b2b2b]"> 
-                NivoWork 
-              </div> 
-            </div> 
-          </div> 
-
-          <nav className="px-4"> 
-            <div className="space-y-2"> 
-              <button 
-                type="button" 
-                className="flex w-full items-center gap-4 rounded-2xl bg-[#ecebea] px-5 py-3.5 text-left text-[17px] font-medium text-[#2f2f2f]" 
-              > 
-                <FileText className="h-5 w-5 text-[#4a4a48]" /> 
-                <span>会后整理</span> 
-              </button> 
-              <button 
-                type="button" 
-                className="flex w-full items-center gap-4 rounded-2xl px-5 py-3.5 text-left text-[17px] font-medium text-[#2f2f2f] hover:bg-[#f0efee]" 
-              > 
-                <Mic className="h-5 w-5 text-[#4a4a48]" /> 
-                <span>实时会议</span> 
-              </button> 
-              <button 
-                type="button" 
-                className="flex w-full items-center gap-4 rounded-2xl px-5 py-3.5 text-left text-[17px] font-medium text-[#2f2f2f] hover:bg-[#f0efee]" 
-              > 
-                <BarChart3 className="h-5 w-5 text-[#4a4a48]" /> 
-                <span>分析后台</span> 
-              </button> 
-              <button 
-                type="button" 
-                className="flex w-full items-center gap-4 rounded-2xl px-5 py-3.5 text-left text-[17px] font-medium text-[#2f2f2f] hover:bg-[#f0efee]" 
-              > 
-                <Settings className="h-5 w-5 text-[#4a4a48]" /> 
-                <span>管理后台</span> 
-              </button> 
-            </div> 
-          </nav> 
-
-          <div className="px-4 pt-12 text-sm text-[#9a9894]">历史记录</div> 
-          <div className="space-y-3 px-4 pt-6"> 
-            {historyItems.map((item) => ( 
-              <div 
-                key={item} 
-                className="flex items-center gap-3 px-2 text-[15px] text-[#7d7a76]" 
-              > 
-                <FileText className="h-4 w-4 shrink-0 text-[#aaa7a2]" /> 
-                <span className="truncate">{item}</span> 
-              </div> 
-            ))} 
-          </div> 
-
-          <div className="px-4 pt-10 text-center text-[14px] text-[#a9a6a1]"> 
-            收起，仅显示近7天 
-          </div> 
-
-          <div className="mt-auto px-4 pb-6 pt-8"> 
-            <div className="rounded-3xl bg-[#161616] p-5 text-white shadow-sm"> 
-              <div className="inline-flex rounded-xl bg-[#ffdd00) px-3 py-1 text-[15px] font-semibold text-black"> 
-                限时会员活动 
-              </div> 
-              <div className="mt-4 text-[15px] leading-7 text-[#f1f1f1]"> 
-                即日至4月16日下单，首月立享 
-                <span className="ml-1 font-semibold text-[#ffdd00]">5折特惠</span> 
-              </div> 
-            </div> 
-
-            <div className="mt-6 flex items-center justify-between px-2"> 
-              <div className="flex items-center gap-3"> 
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8d5d0] bg-white"> 
-                  <User className="h-5 w-5 text-[#4d4b47]" /> 
-                </div> 
-                <div className="text-[17px] font-medium text-[#33312e]">我的</div> 
-                <div className="rounded-xl bg-[#161616] px-3 py-1 text-[14px] font-semibold text-white"> 
-                  Power 
-                </div> 
-              </div> 
-              <ChevronDown className="h-5 w-5 text-[#7e7b77]" /> 
-            </div> 
-          </div> 
-        </aside> 
-
-        <main className="flex-1 px-6 py-8 lg:px-10 xl:px-16 xl:py-10"> 
+      <div className="min-h-screen"> 
+        <main className="px-6 py-8 lg:px-10 xl:px-16 xl:py-10"> 
           <div className="mx-auto max-w-[1010px]"> 
             <section className="overflow-hidden rounded-[28px] border border-[#e6e3df] bg-white shadow-sm"> 
               <div className="flex items-center justify-between px-10 py-9"> 
