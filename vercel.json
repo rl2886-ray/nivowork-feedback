@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["hkg1"],
+  "env": {
+    "FEISHU_WEBHOOK_URL": "@feishu_webhook_url",
+    "FEISHU_APP_ID": "@feishu_app_id",
+    "FEISHU_APP_SECRET": "@feishu_app_secret",
+    "FEISHU_SPREADSHEET_TOKEN": "@feishu_spreadsheet_token",
+    "FEISHU_SHEET_ID": "@feishu_sheet_id"
+  }
+}
